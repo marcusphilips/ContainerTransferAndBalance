@@ -54,6 +54,8 @@ appRouter.get("/", ctrl.homePage);
 appRouter.get("/login", ctrl.loginPage );
 // controller 의 모듈화: login 경로로 왔을떄는 loginFunction 을 통해서 로그인 화면으로 가는 구나.
 // 를 명확하게 알 수 있게 되었음.
+//API: 현재 첫번째 parameter에 보면, 로그인이라는 경로가 있고,
+//get 이라는 method를 통해서 서버가 받는 API만 있음.
     
 
 //ROUTING:
