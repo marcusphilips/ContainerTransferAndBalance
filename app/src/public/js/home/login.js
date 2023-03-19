@@ -45,11 +45,12 @@ function login(){
         //declare obeject called 'req'
         // key1: value1;
         // firstName: "claire"
-        id_val: id.value,
+        id_val : id.value,
         passWord_val: passWord.value,
     };
       console.log(req);
-    
+      console.log("testing..!");
+      //#console.log(process.id_from_frontEnd);
  
 
   //3. Now send the 'data of req object' to the server using fetch.
@@ -72,12 +73,21 @@ function login(){
     //( 서버 ) API 만 구축하면 된다.
  
     method: "POST",
-    //header 를 이용해서 보내는 데이터 타입 명시. 여기서 데이터 타입 == json
+    // 1.post 메소드로 body 안에 데이터를 넣고, http 요청을 보내주기.
+    //header 를 이용해서 서버로 보내는 데이터 타입 명시. 여기서 데이터 타입 == json
     headers:{ 
         "Content-Type": "application/json",
     },
     body: JSON.stringify(req),
- });
- // 지금 보낸 데이터를 서버가 받으려면, 라우트 폴더에서 API 를 만들어 놔야한다. 
- // 그 API를 통해 서버가 데이터를 받음.
+    // ex) JSON.strigify(ID: "monday") ==> "ID": "Monday",
+    // stringfy(): convert JS object into String.
+
+     // 지금 보낸 데이터를 서버가 받으려면, 라우트 폴더에서 API 를 만들어 놔야한다. 
+    // 그 API를 통해 서버가 데이터를 받음.
+    // 이제, 서버에서 응답한 데이터를 다시 받기위해, then()로 'res'에 저장된 데이터를 가져올 수 있음.
+
+ })
+    .then((res) => res.json())
+    .then((res) => console.log(res));
+
 }
