@@ -30,8 +30,8 @@ loginBtn_js.addEventListener("click", login);
 
 function login(){
     console.log("click 'event of loginBtn' happend");
-    console.log(id.value);
-    console.log(passWord.value);
+    console.log("id.value: ",id.value);
+    console.log("passWord.value: ", passWord.value);
     // 1.we are grabbing the value of 'id'. 
 
     //2.declare object to save these values of ids
@@ -49,7 +49,7 @@ function login(){
         passWord_val: passWord.value,
     };
       console.log(req);
-      console.log("testing..!");
+      console.log("login.js msg : testing..! ");
       //#console.log(process.id_from_frontEnd);
  
 
