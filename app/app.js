@@ -1,9 +1,14 @@
-// this is a main file 
+// this is a main file .
+
 "use strict";
-// * Module
+// * Module 설치과정들
 //file for server workings: using Express server framework.
 const express = require("express");
+const bodyParser = require("body-parser");
+// 가져온 모듈 설치 방법: 터미널에 코드 컴파일, npm i body-parser -s
+//
 const app= express();
+
 
 //const POST = 3000;
 // * Routing
@@ -30,10 +35,19 @@ app.set("view engine", "ejs");
 
 app.use(express.static(`${__dirname}/src/public`));
 // what is the difference btw `` and '' ??
-//미들웨어 등록: 어떤 미들 웨어 냐면, login.js 와 login.ejs 이 두파일을
-//연결 시켜주는 미들웨어임.
+//defining Middleware: The middleware coneect these two files, login.js & login.ejs.
 //app.use(express.static('${__dirname}/src/public'));
-//== 현재 directory폴더 안에, Src 폴더 안에, publuc 폴더를 정적 경로로 추가 완료 됌.
+//Purpose of the code: We are adding  'public' folder as the static route, by routing from 
+// curr directory folder -> Src(folder)->public(folder).
+//현재 directory폴더 안에, Src 폴더 안에, publuc 폴더를 정적 경로로 추가 완료 됌.
+
+//Purpose of code: to successfully compile 'body-parser module'
+// We are registering  middle ware of 'body-parser'.
+// that is : JSON file을 parsing 햐줌.  
+app.use(bodyParser.json());
+
+// url 통해 전달되는 데이터에 한글,공백, 등과 같은 문자가 포함될 경우 생기는 문제 해결.
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // * Routing
 //const home= require("./routes/home");

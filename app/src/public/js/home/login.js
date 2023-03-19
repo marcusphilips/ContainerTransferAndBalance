@@ -42,30 +42,41 @@ function login(){
     // type:"bmw", model: "300", color:"white"
     // };
     const req = {
+        //declare obeject called 'req'
         // key1: value1;
         // firstName: "claire"
         id_val: id.value,
         passWord_val: passWord.value,
     };
-    console.log(req);
+      console.log(req);
     
  
 
   //3. Now send the 'data of req object' to the server using fetch.
-    // 브라우저에서 유저가 입력한 아이디, 비번을 서버에게 전달하는 네트워크 통신을 구현 ==fetch를 이용해서 req 값을 전달!
-    //3-1: 어떤 경로로 보내 줄 지 정해줘야함. 프런트랑 서버가 어떤 경로에서 주고 받을 지 정해야 함.
+    // 브라우저에서 유저가 입력한 아이디, 비번을 서버에게 전달하는 네트워크 통신을 구현 ==fetch를 이용해서 req 라는 값을 전달!
+    //3-1: 일단 어떤 경로로 req값을 보내 줄 지 정해줘야함. 이는, 프런트 개발자가 해당 경로를 요청하기 전에,
+    //그 해당 경로의 API가 만들어져있어야 함. 이거는 서버 개발자가 만들어 놓아야 함.
+    //프런트랑 서버가 어떤 경로에서 주고 받을 지 정해야 함.
     //
-    console.log(JSON.stringfy(req));
+    
     //JSON 파일 형태로 req 을 서버로 보내기 위해, req를 문자열로 바꿔준다음(stringfy)
     //JSON 으로 감싸주었음. == JSON. stringify( object )
  // body 를 통해서 http method 중에 POST method 로 서버로 전달 해 주어야 함.
  fetch("/login",{
+    //fetch( first param== route to send 'req' value to server.), (sec param== the data we're sending it to the server.the data type is 'object type'.)
+    // fetch 를 통해서 1)'login' 이라는 경로로, method 'Post'를 이용해서  오브젝트인'req'값을 보낼거고, ('req'는 오브젝트 데이터 형식임)
+    //  body: req;  'body' 키값은 req. 'body'키를 이용해서 'req'를 서버에 보낼 것임. 근데 그 바디키 값을
+    // json 타입으로 보내줄 것임. 그러기 위해 json 으로 'body' 감싸주기.
+    // method strigify 는 '오브젝트 req' 를 문자열로 바꿔주는 메소드.
+    // 그럼, 마지막으로, 'login' 경로로, 'POST' method를 통해 'req'을 받을 
+    //( 서버 ) API 만 구축하면 된다.
+ 
     method: "POST",
     //header 를 이용해서 보내는 데이터 타입 명시. 여기서 데이터 타입 == json
-    headers:{
+    headers:{ 
         "Content-Type": "application/json",
     },
-    body: JSON.Stringify(req),
+    body: JSON.stringify(req),
  });
  // 지금 보낸 데이터를 서버가 받으려면, 라우트 폴더에서 API 를 만들어 놔야한다. 
  // 그 API를 통해 서버가 데이터를 받음.
