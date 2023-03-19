@@ -1,4 +1,5 @@
 // we save all files and code for routing under folder name 'routes'
+// 서버 파일.
 
 //Rest API: The Client sends requests to the 
 // server as data. The server usese
@@ -17,9 +18,11 @@ const appRouter= express.Router();
 //home.ctrl.js 에서 export 한 모듈을 받아줘야 현 파일 index.js 에서 쓸 수 있음.
 const ctrl = require("./home.ctrl");
 
-appRouter.get("/", ctrl.homePage);
+appRouter.get("/", ctrl.output.homePage);
+//이 해당 API는 output의 멤버인 homepage를 가져온다!라는 뜻.
+//그래서 , 데이터를 서버로 보내기 위함임.
 //컨트롤러 기능을 갖는 '콜백함수'를 복사하려는 것
-
+// get(현재 디렉토리-> 파일 'ctrl'-> 아웃풋이라는 오브젝트의 'homepage' 멤버 키.)
 //#(req, res)=>{
     // /: root
     // get("/login"): root 에서 login 으로 이동
@@ -51,12 +54,28 @@ appRouter.get("/", ctrl.homePage);
 // when A brower recieve REQUEST inquiry from the Root route, then a browser will show the RESPONSE from the REQUEST. app.listen(3000, () => {
 // 
 
-appRouter.get("/login", ctrl.loginPage );
+appRouter.get("/login", ctrl.output.loginPage );
 // controller 의 모듈화: login 경로로 왔을떄는 loginFunction 을 통해서 로그인 화면으로 가는 구나.
 // 를 명확하게 알 수 있게 되었음.
 //API: 현재 첫번째 parameter에 보면, 로그인이라는 경로가 있고,
 //get 이라는 method를 통해서 서버가 받는 API만 있음.
     
+appRouter.post("/login", ctrl.process.loginPage);
+// 이 api는 프론트 엔드가 받아온 로그인 데이터를 받아서, 로그인 기능을 처리(process)해주는 api.
+//   그래서 process 라는 옵젝트를 만들어서 넣어주는 거로 코드 수정하였음.
+// 수정 완료 전  : appRouter.post("/login", ctrl.output.loginPage );
+// 수정 완료: appRouter.post("/login", ctrl.process.loginPage );
+
+
+
+//'post method' 를 위한 api 생성 완료: 목적은, 유저가 브라우저에 입력한 아이디랑 패스워드 값 데이터를
+// 서버가 받아오는 일을 하는 API.
+// appRouter.post("/login", ctrl.output.loginPage ); is the API itself.
+// 서버가 post method를 통해서 제이슨 타입 데이터를 받기위해서
+// 필요한 api임.
+// API: 프론트 엔드가 전달한, 로그인 데이터를 서버가 받아서 처리하는 프로셋스.
+
+
 
 //ROUTING:
 //app.get() =>{ 
