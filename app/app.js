@@ -26,7 +26,7 @@ app.set("views", "./src/appViews");
 // set the 'files 'views'' and save ' views files' to 'created folder : appViews'
 // I have created the actual folder in the visual studio.
 
-app.set("view engine", "ejs");
+//#app.set("view engine", "ejs");
 //setting the engine that interprets the HTML file under appViews file.
 // 'the view engine' we have set up to interpret HTML is ejs.
 // The view engine is ejs 
