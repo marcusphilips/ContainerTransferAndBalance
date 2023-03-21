@@ -19,6 +19,8 @@ const home= require("./src/routes/home");
 //2) ./rountes/home = ./ == current directory 
 
 
+
+
 // * App setting
 //1. App setting:Navigation bar
 // we will set up the view of web
