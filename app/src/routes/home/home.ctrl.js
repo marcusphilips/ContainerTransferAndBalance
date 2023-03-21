@@ -14,6 +14,17 @@ const output ={
        {
        res.render("home/login");
        },
+
+       registerPage: (req,res ) =>
+       {
+       res.render("home/register");
+       },
+
+       calculationPage: (req,res ) =>
+       {
+       res.render("home/calculation");
+       },
+
 };
 
 /*

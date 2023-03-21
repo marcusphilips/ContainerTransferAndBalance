@@ -18,6 +18,8 @@ appRouter.get("/", ctrl.output.homePage);
 appRouter.get("/login", ctrl.output.loginPage );
 // Modulization of ctrl.
 // this API: goes from "login" folder to 'ctrl' folder to get output.loginPage.
+appRouter.get("/register", ctrl.output.registerPage );
+appRouter.get("/calculation", ctrl.output.calculationPage );
 
 appRouter.post("/login", ctrl.process.loginPage);
 // This API: step 1) Receives Login Data such as ID and PW
