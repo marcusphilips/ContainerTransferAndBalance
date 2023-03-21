@@ -1,4 +1,4 @@
-# Getting Started with Create Express App
+# Getting Started with Creating Express App
 
 
 
