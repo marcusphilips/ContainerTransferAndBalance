@@ -2,13 +2,7 @@
 
 // in order to validate log-in of existing user.
 //creating users obj
-const users ={
-       id_val_existing: ["claireJg", "UCR", "LLC"],
-       pw_val_existing: ["0430", "179M", "2000"],
-       // they are matching depends on their order.
-};
-
-
+ const UserStorage = require("../../models/UserStorage");
 
 const output ={
 //creating object called output.
@@ -16,12 +10,10 @@ const output ={
        homePage: (req,res) => {
               res.render("home/index");
        },
-
        loginPage: (req,res ) =>
        {
        res.render("home/login");
        },
-
 };
 
 /*
@@ -61,6 +53,9 @@ const process ={
               console.log("--"); //=> displayed on VS terminal only
               console.log("userInput Id : ", id_from_frontEnd); //=> displayed on VS terminal only
               
+              const userStorage = UserStorage.getUsers("id_from_frontEnd" ,"pw_from_frontEnd");
+              console.log(userStorage.getUsers(id_from_frontEnd,pw_from_frontEnd));
+
 
 
               if(users.id_val_existing.includes(id_from_frontEnd)){
@@ -95,8 +90,6 @@ module.exports ={
 output,
 process,
 };
-
-
 
 
 /*
