@@ -4,32 +4,39 @@
 
 ## Available Scripts: 
 1. If you cloned the github, 
-cd into the project directory 'app',
-
+cd into the project directory 'app', and then type this command line on your terminal.
+=>
 ### `npm install`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-2.
+2. type this command line on your terminal again: 
 
 ### `npm fund`
 
-3. Run the web application on,
- http://localhost:3000
+3. 
+type this command line on your terminal again: 
 
 ### `npm start`
 
- You will be able to see live browser now.
+4. If installment and connection was completed successfully,
+you should see the server connection message from terminal saying: 
+"Server is UP and being executed"
 
-4. Once you are  successfully connected to the server,
-when you want to reconnect to the server, you just have to do 
+Now access to  [http://localhost:3000] to our final project  web application in your browser.
+
+
+
+
+5. Once you are  successfully connected to the server,
+when you want to reconnect to the server, you just have to followe two steps
+1. disconnect to the server : 
+ ctrl+c 
+1. Reconnect to the server : 
 ### `npm start`
 
-*When you want to disconnect : ' ctrl+c '
 
 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
 
 
