@@ -89,6 +89,17 @@ function login(){
 
  })
     .then((res) => res.json())
-    .then((res) => console.log(res));
-
+    .then((res) => {
+        if(res.login_success) {
+            location.href ="/";
+            // go to home (root) page
+        } 
+        else{
+            alert(res.loginMsg);
+        }
+    })
+        .catch((err) => {
+            console.error(new Error("Error while logging in !!!")); 
+        });
+    
 }
