@@ -6,7 +6,7 @@ class UserStorage{
             //#: denote private class field.
             id_val_existing: ["claireJg", "UCR", "LLC"],
             pw_val_existing: ["0430", "179M", "2000"],
-            name: [ "Claire", "Eaamon", "LLC"]
+            name: [ "Claire", "Eaamon", "LLC"],
             // they are matching depends on their order.
     };
  
@@ -28,7 +28,7 @@ class UserStorage{
             return newUsers;
         // return newUsers: 'newUsers' goes back to reduce('newUser') recursively.  
         }, {});
-        return newUsers ;
+        return newUsers;
     }
 }
 
