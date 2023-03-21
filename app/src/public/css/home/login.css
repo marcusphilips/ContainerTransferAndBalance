@@ -32,9 +32,9 @@ body {
 .brand-logo {
   
   height: 130px;
-  width: 130px;
+  width: 135px;
   background: url(/team2023_cargo_logo.png) center no-repeat;
-  background-size: 260px;
+  background-size: 220px;
   margin: auto;
   border-radius: 50%;
   box-sizing: border-box;
