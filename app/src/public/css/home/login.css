@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
+.navigationBar{
+  position: absolute;
+  
+  width: 1000vw;
+  top: 5px;
+  background: #91cdfb;
+}
 
 input {
   caret-color: red;
@@ -105,11 +112,12 @@ button:hover {
 a {
   position: absolute;
   font-size: 8px;
-  bottom: 4px;
-  right: 4px;
+  top: 4px;
+  place-items: center;
+  /* right: 4px; */
   text-decoration: none;
   color: black;
-  background: rgb(219, 198, 221);
+  background: rgb(234, 205, 237);
   border-radius: 10px;
   padding: 2px;
 }
