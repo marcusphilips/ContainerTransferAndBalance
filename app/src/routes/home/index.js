@@ -1,8 +1,8 @@
 // we save all files and code for routing under folder name 'routes'
-// 서버 파일.
+// route == is a path 
+//Rest API: The Client sends requests to the server as data.
 
-//Rest API: The Client sends requests to the 
-// server as data. The server usese
+
 const express = require("express");
 // In Node.js, we can bring external module by using ' require method'
 // syntax: const varName = require("file route.")
@@ -10,16 +10,31 @@ const appRouter= express.Router();
 // appRouter is a 'instance' of express.router() member method.
 
 const ctrl = require("./home.ctrl");
+//importing the: home.ctrl.js  
 
 appRouter.get("/", ctrl.output.homePage);
-//이 해당 API는 output의 멤버인 homepage를 가져온다!라는 뜻.
-//그래서 , 데이터를 서버로 보내기 위함임.
-//컨트롤러 기능을 갖는 '콜백함수'를 복사하려는 것
-// get(현재 디렉토리-> 파일 'ctrl'-> 아웃풋이라는 오브젝트의 'homepage' 멤버 키.)
+//this API is getting 'output.homePage' from ctrl file.
+
+appRouter.get("/login", ctrl.output.loginPage );
+// Modulization of ctrl.
+// this API: goes from "login" folder to 'ctrl' folder to get output.loginPage.
+
+appRouter.post("/login", ctrl.process.loginPage);
+// This API: step 1) Receives Login Data such as ID and PW
+//2) Send the received data at#1  to server. server processes Logging-in steps. 
+
+
+module.exports= appRouter;
+
+
+
+//notes
+
+
 //#(req, res)=>{
-    // /: root
-    // get("/login"): root 에서 login 으로 이동
-   //res.send("HERE is the Root.");
+    //  /              //: root
+    //  get("/login")  // move from 'root' to 'login'
+    //  res.send("HERE is the Root.");
 
 //# res.render("home/index");
    // render 'home's' from 'index' folder.
@@ -29,7 +44,7 @@ appRouter.get("/", ctrl.output.homePage);
    //render("fileName")
   
   //*  // 
-  ////respond with "hello world" when a GET request is made to the homepage
+  ////respond with "hello world" when a GET request is made to the homepage(==root)
 //  app.get('/', (req, res) => {
 //    res.send('hello world')
 //  })

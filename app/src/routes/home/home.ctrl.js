@@ -20,15 +20,15 @@ const output ={
 appRouter.get("/login", (req, res) => {
        res.render("home/login");
    
-       // router.get('/',) == router.get('주소', (function.) );
-       // 주소로 GET 요청.
+       // router.get('/',) == router.get('address', (function.) );
+       // GET request to the address above
        // #1.customer's request: "/login"
        // #2.Response to #1.: (req, res) => {
       // res.render("home/login");
       // We call the response code == controller.
    });
 */
-// helloFunction 이라는 컨트롤러 함수를 만들어서 이를 외부에서 사용해줄 것.
+// helloFunction: we are goint to create this controller function to use it outside of the file.
 // same as
 /*
 function helloFunction (req,res)  {
@@ -39,13 +39,13 @@ function helloFunction (req,res)  {
 const process ={
        //this object processes to login by receiving the userData and then logging in.
        loginPage: (req,res) => {
-              //loginPage 함수가 동작해서, 콘솔에 'req.body' 데이터를 display.
+              //loginPage function runs, 'req.body' data will be displayed in console.
+              //req: are requested data that frontend request at 'log.js' to the server(ctlr file)
               console.log(req.body);
               //=> displayed on VS terminal only
               // result: id_val: 'monday'
               // result is JS object.
-              //여기서 req는 front엔드가 'log.js'에서 서버로 (컨트롤러 파일로) 전달한 '요청 데이터들임.' 
-
+        
               // validation: if (existing-log-in info)==(log-in attempt)
               // saving the value of id and PW from a frontEnd user.
               const id_from_frontEnd = req.body.id_val,
@@ -67,8 +67,8 @@ const process ={
                             response.login_success = true;
                             console.log("Login successed");
                             return res.json(response);
-                            //login-successed ture 라는 obj를 json() 형태로 만들어서 프론트 엔드로 응답할거고.body
-                            // 실패했다면 
+                            // return : object named response. in converting json file form.
+                            
                      }
               }
               response.login_success=false;
@@ -78,9 +78,7 @@ const process ={
        },
 };
 
-//lastly; hello, login를 현재 파일 "home.ctrl.js" 밖에서 쓸수 있도록,
-// index.js에서 쓸 것임. 
-// module 를 통해서 objectf\로 빼줄 것
+
 module.exports ={
        //exporting objects, so that we can access to these obj outside of this file.
 output,

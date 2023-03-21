@@ -1,7 +1,7 @@
 // this is a main file .
 
 "use strict";
-// * Module 설치과정들
+// * Module:
 //file for server workings: using Express server framework.
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -45,10 +45,10 @@ app.use(express.static(`${__dirname}/src/public`));
 
 //Purpose of code: to successfully compile 'body-parser module'
 // We are registering  middle ware of 'body-parser'.
-// that is : JSON file을 parsing 햐줌.  
+// that is :we are parsing JSON file parsing  
 app.use(bodyParser.json());
 
-// url 통해 전달되는 데이터에 한글,공백, 등과 같은 문자가 포함될 경우 생기는 문제 해결.
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // * Routing
