@@ -284,6 +284,7 @@ void Transfer::updateContainerCoordinateVectors(Container *container, const Coor
         else
             NEW_COORD.isInBuffer = false;
         std::pair<ContainerCoordinate, Container *> toAdd(NEW_COORD, container);
+        toLoad.pop_back();
         toStay.push_back(toAdd);
     }
 }
