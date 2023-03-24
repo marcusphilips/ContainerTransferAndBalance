@@ -641,13 +641,7 @@ std::list<Port *> Transfer::tryAllOperators() const
             // simulating taking one of the toLoad containers to all possible positions
             // in ship and buffer
             Container *toMove = toLoad.back().second;
-            std::vector<std::pair<ContainerCoordinate, Container *>> newToLoad;
-            for (std::pair<ContainerCoordinate, Container *> p : toLoad)
-            {
-                newToLoad.push_back(p);
-            }
-            // remove toMove Container
-            newToLoad.pop_back();
+            
             for (int i = 0; i < buffer.getWidth(); i++)
             {
                 if (buffer.getStackHeight(i) < buffer.getHeight() - 1)
