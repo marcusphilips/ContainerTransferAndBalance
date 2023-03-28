@@ -31,8 +31,9 @@ to navigate our final project web application in your browser.
 
 
 5. Once you are  successfully connected to the server,
-when you want to reconnect to the server, you just have to followe two steps.a)a)a. disconnect to the server : 
+when you want to reconnect to the server, you just have to followe two steps.a. disconnect to the server : 
  ctrl+c 
+ 
 b. Reconnect to the server : 
 ### `npm start`
 
