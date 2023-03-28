@@ -39,37 +39,10 @@ body{
   
 }
 
-.divFirst{
-
-
-}
-
-
-.logFileContainer {
-    font-size: 23px;
-    
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(235, 236, 239);
-    border-color: rgb(237, 237, 244);
-
-    display:flex;
-    flex-direction:column;
-    align-items: stretch;
-    max-width: 400px;
-    height: 300px;
-    color: rgb(21, 19, 13);
-    border-radius: 15px 10px 10px 10px;
-    /* box-shadow: gray,rgb(150, 146, 146),gray; */
-    box-sizing: border-box;
-    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
-  
-
-}
-
-    
    
 .wrapper{
-    width: 50%;
+    position: relative;
+    width: 35%;
     /* background-color: rgb(162, 183, 236); */
    float:right;
    border-radius: 20px;
@@ -105,4 +78,24 @@ table{
 #buttonClick td input{
 	width: 100%;
     
+}
+
+.fileUpload{
+
+   
+        position: relative;
+        width: 60%;
+        /* background-color: rgb(162, 183, 236); */
+       float:left;
+        border-color: black;
+        border-radius: 10px;
+       /* padding: 40px; */
+      
+       background-color: rgb(48, 42, 42);
+       box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(123, 180, 242);
+       margin-top: 20px;
+       /* scroll-margin-left: auto; */
+    
+
+
 }
