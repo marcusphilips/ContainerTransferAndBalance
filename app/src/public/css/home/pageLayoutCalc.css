@@ -84,7 +84,7 @@ table{
 
    
         position: relative;
-        width: 60%;
+        /* width: 60%; */
         /* background-color: rgb(162, 183, 236); */
        float:left;
         border-color: black;
