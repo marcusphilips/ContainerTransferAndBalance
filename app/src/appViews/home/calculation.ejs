@@ -45,6 +45,7 @@
           
           <article class="logFileContainer">
           <h2>Log File</h2>
+          <div id="timeStamp"></div>
 
           <label for="userText"> Submit message to a logfile:</label>
           <input type="text" id="userText" placeholder="Type message here " maxlength="20">
@@ -56,9 +57,16 @@
                       const inputTxt= document.getElementById('userText');
                       const msgBtn= document.getElementById('msgBtn');
                       const inputLogDisp= document.getElementById('logDisp1');
+                      // const timeStamp= new Date(document.lastModified);
+                      document.getElementById("timeStamp").innerHTML= new Date(document.lastModified);
+                     
 
                       function showLogBox() {
+
+                        // inputLogDisp.innerHTML = timeStamp.value;
                         inputLogDisp.innerHTML = inputTxt.value;
+                        // <div id="timeStamp"></div>
+
                         // 
                       }
                       msgBtn.addEventListener('click',showLogBox);
