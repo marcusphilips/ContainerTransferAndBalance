@@ -1,22 +1,47 @@
 
 body{
-    background-color: rgb(248, 242, 243);
+    /* margin-top:20px;  */
+    /* gives indent space from the top of page */
+    background-color: whitesmoke;
     text-align: center;
-    font-size: 21px;
+    font-size: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    margin-top:10px;
+    margin:auto;
+    width:97%;
+    height: calc(100vh - 40px);
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(123, 180, 242);
+
 
 }
 
 .boldLetter{
-    font-size: 23px;
-    color:white;
+    font-size: 26px;
+    color:rgb(61, 61, 62);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight:bold;
-    background-color: rgb(63, 111, 150);
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 50px;
+    font-style:italic;
+    /* background-color: rgb(63, 111, 150); */
+    margin-top: 5px;
+    margin-bottom: 40px;
+    height: 20px;
+   
+    padding: 30px;
+    box-sizing: border-box;
+    /* background-color: #f7f7f9;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(123, 180, 242); */
+
   
+}
+
+.divFirst{
+
+
 }
 
 
@@ -37,15 +62,47 @@ body{
     /* box-shadow: gray,rgb(150, 146, 146),gray; */
     box-sizing: border-box;
     box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  
 
 }
 
     
    
-    /* margin: 50px
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 50px; */
+.wrapper{
+    width: 50%;
+    /* background-color: rgb(162, 183, 236); */
+   float:right;
+   border-radius: 20px;
+   /* padding: 40px; */
+   box-sizing: border-box;
+   background-color: whitesmoke;
+   box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(123, 180, 242);
+   margin-top: 20px;
+   /* scroll-margin-left: auto; */
+}
+table{
+	margin-top: 50px;
+	text-align: center;
+	background: whitesmoke;
+	color: #1d1d1d;
+    border-radius: none;
+    border-style: round;
+    border-color: whitesmoke;
+}
 
-  }
+#tableDisp th {
+	padding: 16px;
+    background-color: whitesmoke;
+}
 
+#tableDisp td{
+    background-color: whitesmoke;
+	padding: 16px;
+}
+
+
+
+#buttonClick td input{
+	width: 100%;
+    
+}

@@ -10,8 +10,20 @@
 body{
     /* margin-top:20px;  */
     /* gives indent space from the top of page */
-    background-color: rgb(248, 244, 248);
+    background-color: whitesmoke;
     text-align: center;
     font-size: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    margin-top:10px;
+    margin:auto;
+    width:90%;
+    height: 900px;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(123, 180, 242);
+
+
 }
