@@ -7,6 +7,8 @@
 cd into the project directory 'app', and then type this command line on your terminal.
 =>
 ### `npm install`
+when npm install does not work, delete the entire 'node_modules' file.
+and then do 'npm instal' again.
 
 
 2. Type this command line on your terminal again: 
