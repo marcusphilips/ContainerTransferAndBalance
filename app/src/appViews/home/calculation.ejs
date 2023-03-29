@@ -75,7 +75,7 @@
         
                 <tr id="buttonClick">
                             <div id="timeStamp"></div>
-                  <td colspan="2"><input type="button" class="btn btn-primary" name="button" id="btn" value="Create Log message" onclick="AddRow()"></td>
+                  <td colspan="2"><input type="button" class="btn btn-primary" name="button" id="btn" value="Create Log message" onclick="rowCreation()"></td>
                 </tr>
               </tbody>
             </table>
@@ -101,10 +101,10 @@
             var i = 1;
             var j = 0;
         
-            function AddRow(){
+            function rowCreation(){
         
-              var AddRown = document.getElementById('tableDisp');
-              var NewRow = AddRown.insertRow(i);
+              var rowAdd = document.getElementById('tableDisp');
+              var NewRow = rowAdd.insertRow(i);
                     // var timeStamp2= document.getElementById("timeStamp");
         
                     //nice job!
@@ -132,6 +132,11 @@
         
               i++;
               j++;
+            }
+            function logFileAutomatedAlert(){
+
+
+
             }
            
 
@@ -172,7 +177,7 @@
                   createFileInput(fileRead);
               
                   var button = select('#loadfile');
-                  button.mousePressed(fileUploading);
+                  // button.mousePressed(fileUploading);
               
                  
               }
