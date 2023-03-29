@@ -58,8 +58,7 @@
         
                 <tr>
                   <th>Operator Name</th>
-                  <td><input type="text" name="operatorName" id="operatorName" placeholder="Type your name here"></td>
-                          
+                  <td><input type="text" name="operatorName" id="operatorName" placeholder="Type your name here"></td>  
                 </tr>
         
               </thead>
@@ -70,16 +69,13 @@
                   <td><input type="text" name="logNote" id="logNote" placeholder="Leave your message here"></td>
                             
                 </tr>
-        
-                
-        
                 <tr id="buttonClick">
                             <div id="timeStamp"></div>
                   <td colspan="2"><input type="button" class="btn btn-primary" name="button" id="btn" value="Create Log message" onclick="rowCreation()"></td>
                 </tr>
               </tbody>
             </table>
-        
+
             <table border="1" border-style="round" id="tableDisp">
               <thead>
                 <tr>
@@ -89,6 +85,26 @@
                 </tr>
               </thead>
             </table>
+
+
+
+           
+
+
+
+            <table border="1" border-style="round" id="tableDisp2">
+              <thead>
+                <tr>
+                  <th id="shipName" style="color: red ">Ship Name</th>
+                  <th id="txtFileAlert">Log message_File Uploaded</th>
+              
+                  <th id="txtFileTimeStamp">Time stamp_File Uploaded</th>
+                </tr>
+              </thead>
+            </table>
+
+
+
            </center>
           
           <script>
@@ -110,7 +126,7 @@
                     //nice job!
                     document.getElementById("timeStamp").value= new Date(document.lastModified);
         
-                    listOperator[j] = document.getElementById("opertorName").value;
+                    listOperator[j] = document.getElementById("operatorName").value;
                     listLog[j] = document.getElementById("logNote").value;
                           
                         
@@ -135,49 +151,67 @@
 
             }
 
-                // case2. for log file
-                // const fileBtnEvent= document.getElementById("fileBtn");
-                // fileBtnEvent.onclick = function(event){
-                //   console.log("File button Clicked")
-                // };
-                function logFileMsgAlertTextFile(){
-                  var rowAdd2 = document.getElementById('tableDisp');
+                // case2. for log file_text File update
+                </script>
+                      </div>
+           
+                      <button id="fileBtn" onclick="openingFile()" >Open</button>
+                      <div id="fileDisp">File Display Box</div>
+          
+                     
+                <script>
+              
+                        let listShipName = [];
+                        let listLog2 = [];
+                            let  listTime2 = [];
+                        
+                    
+                        var i = 1;
+                        var j = 0;
+
+                    function logFileMsgAlertTextFile(){
+                  var rowAdd2 = document.getElementById('tableDisp2');
                   var NewRow2 = rowAdd2.insertRow(i);
                    // var timeStamp2= document.getElementById("timeStamp");
         
-                    //nice job!
-                    document.getElementById("timeStamp").value= new Date(document.lastModified);
-        
-                    //  //id="operatorName"  id="logNote"
-                    var shipName="ship_test";
-                    var logMsgFileAlert="Manifest Text file is uploaded.";
-                    listOperator[j] = shipName;
-                    listLog[j] = logMsgFileAlert;
-                          
-                        
-                          
-                          // <div id="timeStamp"></div>
-                    // <div id="timeStamp"></div>
+                  //  <th id="shipName">Ship Name</th>
+                  // <th id="txtFileAlert">Log message_File Uploaded</th>
               
-                    listTime[j] = document.getElementById("timeStamp").value;
+                  // <th id="txtFileTimeStamp">Time stamp_File Uploaded</th>
 
+                    //nice job!
+                    
+                    // var shipName= "Test_SHIP_Hi";
+                    document.getElementById("shipName").value="Test_SHIP_Hi";
+                    // var logMsgFileAlert=  "File uploaded at."
+                    document.getElementById("txtFileAlert").value= "File uploaded at.";
+                    document.getElementById("txtFileTimeStamp").value= "11:23";
+
+
+               
+                    listShipName[j] = document.getElementById("shipName").value;
+                    listLog2[j] = document.getElementById("txtFileAlert").value;
+                    listTime2[j] = document.getElementById("txtFileTimeStamp").value;
+
+                    var tileB01 = NewRow2.insertCell(0);
+                      var tileB02 = NewRow2.insertCell(1);
+                            var tileB03 = NewRow2.insertCell(2);
+            
+        
+                      tileB01.innerHTML =  listShipName[j];
+                      tileB02.innerHTML = listLog2[j];
+                      tileB03.innerHTML = listTime2[j];
+                    
+                        
                     i++;
                     j++;
-
-
                 }
               
 
 
             
-          //  
-            </script>
-            </div>
-           
-            <button id="fileBtn" onclick="openingFile()" >Open</button>
-            <div id="fileDisp">File Display Box</div>
-
-            <script>
+         
+          
                   function openingFile(){
                     // make sure: 'input' varName is now allowed to be changed
                   var input = document.createElement("input");
@@ -202,8 +236,9 @@
                   
                   fileReader.onload = function () {
                     fileDisp.innerText = fileReader.result;
-                    console.log("Text File is uploaded")
+                    console.log("Text File is uploaded");
                       logFileMsgAlertTextFile();
+                     
                   };
                 }
 
