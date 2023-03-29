@@ -140,74 +140,37 @@
             <button onclick="openTextFile()">Open</button>
             <div id="output">File Contents Area</div>
 
-            <script>
-              function openTextFile(){
-	var input = document.createElement("input");
-	
-	console.log(input);
-	input.type = "file";
-	// html일 경우 text/html로 
-    input.accept = "text/plain, text/html, .jsp";
-
-	 input.click();
-	 input.onchange = function (event) {
-	        processFile(event.target.files[0]);
-	    };
-	    
-}
-
-
-function processFile(file){
-	var reader = new FileReader();
-	reader.readAsText(file,"euc-kr");
-	
-	reader.onload = function () {
-		output.innerText = reader.result;
-	};
-}
-	
-
-            </script>
-
-
-
-
-<!--           
-                    <div class="fileUpload"> -->
-                      <!-- <button onclick="openTextFile()">Upload manifest.txt file</button>
-                      <div id="textFileResult">Result box</div>
+                            <script>
+                              function openTextFile(){
+                  var input = document.createElement("input");
                   
-                  <script>
-                
-                         function openTextFile(){
-                          var fileInput = document.createElement("fileInput");
-                          
-                          fileInput.type = "file";
-                        
-                          fileInput.accept = "text/plain, text/html";
+                  console.log(input);
+                  input.type = "file";
+                  // html일 경우 text/html로 
+                    input.accept = "text/plain, text/html, .jsp";
 
-                          fileInput.click();
-                          fileInput.onchange = function (event) {
-                                  uploadingFile(event.target.files[0]);
-                              };
-                              
-                        }
+                  input.click();
+                  input.onchange = function (event) {
+                          processFile(event.target.files[0]);
+                      };
+                      
+                }
 
-                        function uploadingFile(file){
-                          var fileReader = new FileReader();
-                          fileReader.readAsText(file,"UTF-8");
-                          
-                          fileReader.onload = function () {
-                            textFileResult.innerText = fileReader.textFileResult;
-                          };
-                        }
-                          
-                    // function logFileAutomatedAlert(){
-                    // }
-                  </script> -->
-<!-- 
-                   </div> -->
-         
+
+                function processFile(file){
+                  var reader = new FileReader();
+                  reader.readAsText(file,"euc-kr");
+                  
+                  reader.onload = function () {
+                    output.innerText = reader.result;
+                  };
+                }
+                  
+
+          </script>
+
+
+
 
 
          
