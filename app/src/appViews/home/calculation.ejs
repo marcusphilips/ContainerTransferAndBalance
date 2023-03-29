@@ -158,6 +158,7 @@
               function fileLoaded(data) {
                   // txt = data;
                   createP(join(data, '<br/>'));
+                
               }
               
               function fileRead(file) {
@@ -173,13 +174,9 @@
               
               function setup() {
                   noCanvas();
-              
-                  createFileInput(fileRead);
-              
+                  createFileInput(fileRead)
                   var button = select('#loadfile');
-                  // button.mousePressed(fileUploading);
-              
-                 
+                
               }
               </script>
                </div>
