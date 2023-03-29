@@ -40,7 +40,11 @@
             <script>
             document.write(" Welcome, user name: ");
               var userNameDisp=localStorage.getItem("textvalue");
+            
               document.write(userNameDisp);
+              // logFileMsgAlertLogIn(userNameDisp);
+           
+
             </script>
           </div>
           
@@ -49,7 +53,7 @@
 
           
           
-          <!-- </div> -->
+          </div>
           <div class="wrapper">
             <h3> Log file Display Box</h3>
             <center>
@@ -76,36 +80,88 @@
               </tbody>
             </table>
 
-            <table border="1" border-style="round" id="tableDisp">
-              <thead>
-                <tr>
-                  <th>Operator Name </th>
-                  <th>Log message</th>
-                  <th>Time stamp</th>
-                </tr>
-              </thead>
-            </table>
 
-
-
-           
-
-
-
+            <!-- 1st table -->
             <table border="1" border-style="round" id="tableDisp2">
               <thead>
                 <tr>
-                  <th id="shipName" style="color: rgb(62, 53, 240) ">Ship Name</th>
-                  <th id="txtFileAlert" style="color: rgb(62, 53, 240)">Log message_File Uploaded</th>
+                  <th id="shipName" style="color: rgb(79, 78, 81) "> Ship/User name</th>
+                  <th id="txtFileAlert" style="color: rgb(67, 67, 68)">Log message</th>
               
-                  <th id="txtFileTimeStamp" style="color: rgb(62, 53, 240)">Time stamp_File Uploaded</th>
+                  <th id="txtFileTimeStamp" style="color: rgb(81, 81, 84)">Time stamp</th>
+                </tr>
+              </thead>
+            </table>
+           </center>
+           <!-- 2nd table -->
+            <table border="1" border-style="round" id="tableDisp">
+              <thead>
+                <tr>
+                  <th style="color: rgb(30, 66, 248) ">Operator Name </th>
+                  <th style="color: rgb(30, 66, 248) ">Log message</th>
+                  <th style="color: rgb(30, 66, 248) ">Time stamp</th>
                 </tr>
               </thead>
             </table>
 
+          
+
+           <script>
+             logFileMsgAlertLogIn(userNameDisp);
 
 
-           </center>
+          
+                // logFileMsgAlertLogIn(userNameDisp);
+                function logFileMsgAlertLogIn(userNameDisp) {
+                  let listUserName = [];
+                  let listLog3 = [];
+                  let  listTime3 = [];
+              
+                   var a = 1;
+                   var b = 0;
+
+                  var rowAdd3 = document.getElementById('tableDisp2');
+                  var NewRow3 = rowAdd3.insertRow(a);
+               
+
+                    //nice job!
+                    
+                     var userNameLog=userNameDisp;
+                     let msgLogInfo=("A user has logged in.");
+               
+
+                     let finalTime2=new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+      
+                    document.getElementById("shipName").value=userNameLog;
+                    // var logMsgFileAlert=  "File uploaded at."
+                    document.getElementById("txtFileAlert").value= msgLogInfo;
+                  
+                    document.getElementById("txtFileTimeStamp").value= finalTime2;
+
+
+               
+                    listUserName[b] = document.getElementById("shipName").value;
+                    listLog3[b] = document.getElementById("txtFileAlert").value;
+                    listTime3[b] = document.getElementById("txtFileTimeStamp").value;
+
+                      var tileC01 = NewRow3.insertCell(0);
+                      var tileC02 = NewRow3.insertCell(1);
+                      var tileC03 = NewRow3.insertCell(2);
+            
+        
+                      tileC01.innerHTML =  listUserName[b];
+                      tileC02.innerHTML = listLog3[b];
+                      tileC03.innerHTML = listTime3[b];
+                    
+                        
+                    a++;
+                    b++;
+                }
+
+             
+
+           </script>
+
           
           <script>
               
@@ -128,12 +184,9 @@
         
                     listOperator[j] = document.getElementById("operatorName").value;
                     listLog[j] = document.getElementById("logNote").value;
+                    // document.getElementById("logNote").style.color= "blue";
                           
-                        
-                          
-                          // <div id="timeStamp"></div>
-                    // <div id="timeStamp"></div>
-              
+                
                     listTime[j] = document.getElementById("timeStamp").value;
               
                       var tile01 = NewRow.insertCell(0);
@@ -157,6 +210,7 @@
                       <div class="fileDispContainer">
                       <button id="fileBtn" onclick="openingFile()" >Open</button>
                       <div id="fileDisp">File Display Box</div>
+
                      </div>
           
                      
@@ -164,13 +218,15 @@
               
                         let listShipName = [];
                         let listLog2 = [];
-                            let  listTime2 = [];
+                         let  listTime2 = [];
                         
                     
                         var x = 1;
                         var y = 0;
 
-                    function logFileMsgAlertTextFile(fileName,fileSize){
+                function logFileMsgAlertTextFile(fileName,fileSize){
+              
+
                   var rowAdd2 = document.getElementById('tableDisp2');
                   var NewRow2 = rowAdd2.insertRow(x);
                
@@ -185,7 +241,7 @@
                     //   let timeStamp2 = new Date().getTime();
                     //  let timeStamp3= new Date(timeStamp2);
                     //  let finalTime= new Date().toPDTString();
-                     let finalTime=new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"})
+                     let finalTime=new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"}); 
                      
                   
 
@@ -217,7 +273,55 @@
                     x++;
                     y++;
                 }
+                // <script>
+                // // logFileMsgAlertLogIn(userNameDisp);
+                // function logFileMsgAlertLogIn(userNameDisp) {
+                //   let listUserName = [];
+                //   let listLog3 = [];
+                //   let  listTime3 = [];
               
+                //    var a = 1;
+                //    var b = 0;
+
+                //   var rowAdd3 = document.getElementById('tableDisp2');
+                //   var NewRow3 = rowAdd3.insertRow(a);
+               
+
+                //     //nice job!
+                    
+                //      var userNameLog=userNameDisp;
+                //      let msgLogInfo=("A user has logged in.");
+               
+
+                //      let finalTime2=new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+      
+                //     document.getElementById("shipName").value=userNameLog;
+                //     // var logMsgFileAlert=  "File uploaded at."
+                //     document.getElementById("txtFileAlert").value= msgLogInfo;
+                  
+                //     document.getElementById("txtFileTimeStamp").value= finalTime2;
+
+
+               
+                //     listUserName[b] = document.getElementById("shipName").value;
+                //     listLog3[b] = document.getElementById("txtFileAlert").value;
+                //     listTime3[b] = document.getElementById("txtFileTimeStamp").value;
+
+                //       var tileC01 = NewRow3.insertCell(0);
+                //       var tileC02 = NewRow3.insertCell(1);
+                //       var tileC03 = NewRow3.insertCell(2);
+            
+        
+                //       tileC01.innerHTML =  listUserName[b];
+                //       tileC02.innerHTML = listLog3[b];
+                //       tileC03.innerHTML = listTime3[b];
+                    
+                        
+                //     a++;
+                //     b++;
+                // }
+
+                //<script>
 
                   function openingFile(){
                     // make sure: 'input' varName is now allowed to be changed
@@ -248,6 +352,7 @@
                      
                   };
                 }
+                // end
 
 
           </script>

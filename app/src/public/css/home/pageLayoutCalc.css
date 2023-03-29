@@ -51,10 +51,11 @@ body{
    background-color: whitesmoke;
    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(123, 180, 242);
    margin-top: 20px;
-   font-size: 23px;;
+   font-size: 21px;;
    /* scroll-margin-left: auto; */
 }
 table{
+    position: relative;
 	margin-top: 50px;
 	text-align: center;
 	background: whitesmoke;
@@ -64,12 +65,21 @@ table{
     border-color: whitesmoke;
 }
 
+
+#tableDisp {
+    position: relative;
+	padding: 16px;
+    background-color: whitesmoke;
+}
+
 #tableDisp th {
+    position: relative;
 	padding: 16px;
     background-color: whitesmoke;
 }
 
 #tableDisp td{
+    position: relative;
     background-color: whitesmoke;
 	padding: 16px;
 }
@@ -99,14 +109,14 @@ table{
     
 }
 
-#fileDisp{
+/* #fileDisp{
 /* 
     position: relative; */
   
     
 
 
-}
+
 
 .fileDispContainer{
 
