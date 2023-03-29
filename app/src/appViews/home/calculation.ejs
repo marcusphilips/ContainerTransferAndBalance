@@ -133,46 +133,44 @@
               i++;
               j++;
             }
-           
+          //  
             </script>
             </div>
            
-            <button onclick="openTextFile()">Open</button>
-            <div id="output">File Contents Area</div>
+            <button onclick="openingFile()">Open</button>
+            <div id="fileDisp">File Display Box</div>
 
-                            <script>
-                              function openTextFile(){
+            <script>
+                  function openingFile(){
+                    // make sure: 'input' varName is now allowed to be changed
                   var input = document.createElement("input");
                   
-                  console.log(input);
+                  // console.log(textInput);
                   input.type = "file";
-                  // html일 경우 text/html로 
-                    input.accept = "text/plain, text/html, .jsp";
+                  // setting inputFile Type
+                  input.accept = "text/plain, text/html";
 
                   input.click();
                   input.onchange = function (event) {
-                          processFile(event.target.files[0]);
+                    // when there is onchange, we run fuction 'upLoadingFile'
+                          uploadingFile(event.target.files[0]);
                       };
                       
-                }
+                } 
 
 
-                function processFile(file){
-                  var reader = new FileReader();
-                  reader.readAsText(file,"euc-kr");
+                function uploadingFile(file){
+                  var fileReader = new FileReader();
+                  fileReader.readAsText(file,"UTF-8");
                   
-                  reader.onload = function () {
-                    output.innerText = reader.result;
+                  fileReader.onload = function () {
+                    fileDisp.innerText = fileReader.result;
                   };
                 }
                   
 
           </script>
-
-
-
-
-
+        <!--  -->
          
 
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
