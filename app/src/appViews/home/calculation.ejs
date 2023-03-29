@@ -95,7 +95,7 @@
             <table border="1" border-style="round" id="tableDisp2">
               <thead>
                 <tr>
-                  <th id="shipName" style="color: red ">Ship Name</th>
+                  <th id="shipName" style="color: rgb(62, 53, 240) ">Ship Name</th>
                   <th id="txtFileAlert">Log message_File Uploaded</th>
               
                   <th id="txtFileTimeStamp">Time stamp_File Uploaded</th>
@@ -138,7 +138,7 @@
               
                       var tile01 = NewRow.insertCell(0);
                       var tile02 = NewRow.insertCell(1);
-                            var tile03 = NewRow.insertCell(2);
+                      var tile03 = NewRow.insertCell(2);
             
         
                       tile01.innerHTML = listOperator[j];
@@ -166,12 +166,12 @@
                             let  listTime2 = [];
                         
                     
-                        var i = 1;
-                        var j = 0;
+                        var x = 1;
+                        var y = 0;
 
-                    function logFileMsgAlertTextFile(){
+                    function logFileMsgAlertTextFile(fileName){
                   var rowAdd2 = document.getElementById('tableDisp2');
-                  var NewRow2 = rowAdd2.insertRow(i);
+                  var NewRow2 = rowAdd2.insertRow(x);
                    // var timeStamp2= document.getElementById("timeStamp");
         
                   //  <th id="shipName">Ship Name</th>
@@ -181,10 +181,13 @@
 
                     //nice job!
                     
-                    // var shipName= "Test_SHIP_Hi";
-                    document.getElementById("shipName").value="Test_SHIP_Hi";
+                     var shipName=fileName;
+                    
+                  //  createP(file.name) + ' ' + file.size + ' ' + file.type);
+            
+                    document.getElementById("shipName").value=shipName;
                     // var logMsgFileAlert=  "File uploaded at."
-                    document.getElementById("txtFileAlert").value= "File uploaded at.";
+                    document.getElementById("txtFileAlert").value= "Manifest file uploaded.";
                     document.getElementById("txtFileTimeStamp").value= "11:23";
 
 
@@ -203,15 +206,11 @@
                       tileB03.innerHTML = listTime2[j];
                     
                         
-                    i++;
-                    j++;
+                    x++;
+                    y++;
                 }
               
 
-
-            
-         
-          
                   function openingFile(){
                     // make sure: 'input' varName is now allowed to be changed
                   var input = document.createElement("input");
@@ -237,23 +236,11 @@
                   fileReader.onload = function () {
                     fileDisp.innerText = fileReader.result;
                     console.log("Text File is uploaded");
-                      logFileMsgAlertTextFile();
+                      logFileMsgAlertTextFile(file.name);
                      
                   };
                 }
 
-
-                  // function fileBtnClickedLogFile(event){
-           
-                  // };
-
-                
-
-
-                // const fileBtnEvent= document.getElementById("fileBtn");
-                // fileBtnEvent.onclick = function(event){
-                //   console.log("File button Clicked")
-                // };
 
           </script>
         <!--  -->

@@ -51,6 +51,7 @@ body{
    background-color: whitesmoke;
    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(123, 180, 242);
    margin-top: 20px;
+   font-size: 23px;;
    /* scroll-margin-left: auto; */
 }
 table{
