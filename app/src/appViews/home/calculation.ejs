@@ -96,9 +96,9 @@
               <thead>
                 <tr>
                   <th id="shipName" style="color: rgb(62, 53, 240) ">Ship Name</th>
-                  <th id="txtFileAlert">Log message_File Uploaded</th>
+                  <th id="txtFileAlert" style="color: rgb(62, 53, 240)">Log message_File Uploaded</th>
               
-                  <th id="txtFileTimeStamp">Time stamp_File Uploaded</th>
+                  <th id="txtFileTimeStamp" style="color: rgb(62, 53, 240)">Time stamp_File Uploaded</th>
                 </tr>
               </thead>
             </table>
@@ -154,9 +154,10 @@
                 // case2. for log file_text File update
                 </script>
                       </div>
-           
+                      <div class="fileDispContainer">
                       <button id="fileBtn" onclick="openingFile()" >Open</button>
                       <div id="fileDisp">File Display Box</div>
+                     </div>
           
                      
                 <script>
@@ -169,26 +170,33 @@
                         var x = 1;
                         var y = 0;
 
-                    function logFileMsgAlertTextFile(fileName){
+                    function logFileMsgAlertTextFile(fileName,fileSize){
                   var rowAdd2 = document.getElementById('tableDisp2');
                   var NewRow2 = rowAdd2.insertRow(x);
-                   // var timeStamp2= document.getElementById("timeStamp");
-        
-                  //  <th id="shipName">Ship Name</th>
-                  // <th id="txtFileAlert">Log message_File Uploaded</th>
-              
-                  // <th id="txtFileTimeStamp">Time stamp_File Uploaded</th>
+               
 
                     //nice job!
                     
                      var shipName=fileName;
-                    
-                  //  createP(file.name) + ' ' + file.size + ' ' + file.type);
+                     let msgWithFileInfo=("Manifest file uploaded. The file size: " +fileSize + " bytes");
+               
+
+                          
+                    //   let timeStamp2 = new Date().getTime();
+                    //  let timeStamp3= new Date(timeStamp2);
+                    //  let finalTime= new Date().toPDTString();
+                     let finalTime=new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"})
+                     
+                  
+
+                  //    let finalTime= ( timeStamp3.getMonth() + "/" + timeStamp3.getDate() +"/" + timeStamp3.getFullYear() + "/" + timeStamp3.getHours() + "/" + + timeStamp3.getMinutes() + "/");
+                  // //  createP(file.name) + ' ' + file.size + ' ' + file.type);
             
                     document.getElementById("shipName").value=shipName;
                     // var logMsgFileAlert=  "File uploaded at."
-                    document.getElementById("txtFileAlert").value= "Manifest file uploaded.";
-                    document.getElementById("txtFileTimeStamp").value= "11:23";
+                    document.getElementById("txtFileAlert").value= msgWithFileInfo;
+                  
+                    document.getElementById("txtFileTimeStamp").value= finalTime;
 
 
                
@@ -236,7 +244,7 @@
                   fileReader.onload = function () {
                     fileDisp.innerText = fileReader.result;
                     console.log("Text File is uploaded");
-                      logFileMsgAlertTextFile(file.name);
+                      logFileMsgAlertTextFile(file.name, file.size);
                      
                   };
                 }

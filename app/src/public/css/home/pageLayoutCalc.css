@@ -10,9 +10,9 @@ body{
     margin-top:10px;
     margin:auto;
     width:97%;
-    height: calc(100vh - 40px);
+    min-height: calc(100vh - 40px);
     border-radius: 20px;
-    padding: 40px;
+    /* padding: 40px; */
     box-sizing: border-box;
     background: #ecf0f3;
     box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(123, 180, 242);
@@ -97,6 +97,21 @@ table{
        margin-top: 20px;
        /* scroll-margin-left: auto; */
     
+}
 
+#fileDisp{
+/* 
+    position: relative; */
+  
+    
+
+
+}
+
+.fileDispContainer{
+
+    position: relative;
+    float:left;
+    background-color: rgb(240, 222, 234);
 
 }
