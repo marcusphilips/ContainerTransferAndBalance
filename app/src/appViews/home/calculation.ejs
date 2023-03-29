@@ -59,7 +59,7 @@
                 <tr>
                   <th>Operator Name</th>
                   <td><input type="text" name="operatorName" id="operatorName" placeholder="Type your name here"></td>
-                            
+                          
                 </tr>
         
               </thead>
@@ -105,12 +105,12 @@
         
               var rowAdd = document.getElementById('tableDisp');
               var NewRow = rowAdd.insertRow(i);
-                    // var timeStamp2= document.getElementById("timeStamp");
+                   // var timeStamp2= document.getElementById("timeStamp");
         
                     //nice job!
                     document.getElementById("timeStamp").value= new Date(document.lastModified);
         
-                    listOperator[j] = document.getElementById("operatorName").value;
+                    listOperator[j] = document.getElementById("opertorName").value;
                     listLog[j] = document.getElementById("logNote").value;
                           
                         
@@ -127,17 +127,54 @@
         
                       tile01.innerHTML = listOperator[j];
                       tile02.innerHTML = listLog[j];
-                            tile03.innerHTML = listTime[j];
+                      tile03.innerHTML = listTime[j];
                     
         
               i++;
               j++;
+
             }
+
+                // case2. for log file
+                // const fileBtnEvent= document.getElementById("fileBtn");
+                // fileBtnEvent.onclick = function(event){
+                //   console.log("File button Clicked")
+                // };
+                function logFileMsgAlertTextFile(){
+                  var rowAdd2 = document.getElementById('tableDisp');
+                  var NewRow2 = rowAdd2.insertRow(i);
+                   // var timeStamp2= document.getElementById("timeStamp");
+        
+                    //nice job!
+                    document.getElementById("timeStamp").value= new Date(document.lastModified);
+        
+                    //  //id="operatorName"  id="logNote"
+                    var shipName="ship_test";
+                    var logMsgFileAlert="Manifest Text file is uploaded.";
+                    listOperator[j] = shipName;
+                    listLog[j] = logMsgFileAlert;
+                          
+                        
+                          
+                          // <div id="timeStamp"></div>
+                    // <div id="timeStamp"></div>
+              
+                    listTime[j] = document.getElementById("timeStamp").value;
+
+                    i++;
+                    j++;
+
+
+                }
+              
+
+
+            
           //  
             </script>
             </div>
            
-            <button onclick="openingFile()">Open</button>
+            <button id="fileBtn" onclick="openingFile()" >Open</button>
             <div id="fileDisp">File Display Box</div>
 
             <script>
@@ -156,7 +193,7 @@
                           uploadingFile(event.target.files[0]);
                       };
                       
-                } 
+                }
 
 
                 function uploadingFile(file){
@@ -165,9 +202,23 @@
                   
                   fileReader.onload = function () {
                     fileDisp.innerText = fileReader.result;
+                    console.log("Text File is uploaded")
+                      logFileMsgAlertTextFile();
                   };
                 }
-                  
+
+
+                  // function fileBtnClickedLogFile(event){
+           
+                  // };
+
+                
+
+
+                // const fileBtnEvent= document.getElementById("fileBtn");
+                // fileBtnEvent.onclick = function(event){
+                //   console.log("File button Clicked")
+                // };
 
           </script>
         <!--  -->
