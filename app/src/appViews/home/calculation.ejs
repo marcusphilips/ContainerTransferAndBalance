@@ -212,9 +212,9 @@
                       <!-- <button onclick="document.getElementById('getFileBtn').click()">Open file</button> 
                       <input type='file' id="getFileBtn" onclick="openFileBtn();"> -->
 
-
-                      <button id="getFileBtn" onclick="openFileBtn()" >Open file</button> 
-                     
+<!--  
+                      <button id="getFileBtn" onclick="openFileBtn()"; >Open file</button>  -->
+                      <input type='file' id="getFileHit" onclick="openFileBtn();"> 
 
                       <!-- <input type='button' id="getFileBtn" onclick="openFileBtn();">Open file</button> 
                      -->
@@ -358,14 +358,27 @@
                    let text = await fileData.text();
                    textarea.innerText= text;
 
+                   var files2=event.target.files;
+                  var getFileName= files2[0].name;
+                  var getFileSize= files2[0].size;
 
-                     var fileName= document.getElementById('getFileBtn')
-                     var getFileName = fileName.files[0].name;
-                     var getFileSize = fileName.files[0].size;
-                     
-                   logFileMsgAlertTextFile(getFileName, getFileSize);
-                  //  openingFile();
+                 
+                  logFileMsgAlertTextFile(getFileName, getFileSize);
+                  //  passFileName(getFileName,getFileSize)
+
+                    
                }
+
+              //  function passFileName() {
+
+              //     var files2=event.target.files;
+              //     var getFileName= files2[0].name;
+              //     var getFileSize= files2[0].size;
+
+              
+              //      logFileMsgAlertTextFile(getFileName, getFileSize);
+              //     //  openingFile();
+              //  }
 
                async function saveFile(){
                    let stream = await fileSave.createWritable();
