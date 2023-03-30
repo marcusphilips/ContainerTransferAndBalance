@@ -209,8 +209,11 @@
                       <div id="fileDisp">File Display Box </div>
                       <!-- <button id="fileBtn" onclick="openingFile();">Open file</button> -->
 
-                      <button onclick="document.getElementById('getFileBtn').click()">Open file</button> 
-                      <input type='file' id="getFileBtn" onclick="openFileBtn();">
+                      <!-- <button onclick="document.getElementById('getFileBtn').click()">Open file</button> 
+                      <input type='file' id="getFileBtn" onclick="openFileBtn();"> -->
+
+
+                      <button id="getFileBtn" onclick="openFileBtn()" >Open file</button> 
                      
 
                       <!-- <input type='button' id="getFileBtn" onclick="openFileBtn();">Open file</button> 
@@ -356,7 +359,7 @@
                    textarea.innerText= text;
 
 
-                   var fileName= document.getElementById('getFileBtn')
+                     var fileName= document.getElementById('getFileBtn')
                      var getFileName = fileName.files[0].name;
                      var getFileSize = fileName.files[0].size;
                      
