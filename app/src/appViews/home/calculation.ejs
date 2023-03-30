@@ -1,20 +1,16 @@
+<!-- ref code for file reader:    https://www.youtube.com/watch?v=8EcBJV0sOSU -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
-          
-    <!-- <script language="javascript" type="text/javascript" src="/sketch.js"></script> -->
-
+  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/home/pageLayoutCalc.css"> 
-    <!-- <script src="/js/home/login.js" defer></script> -->
-    
+
  </head>
 <body>
     <ul class="nav nav-pills nav-fill">
@@ -206,10 +202,30 @@
 
                 // case2. for log file_text File update
                 </script>
-                      </div>
+                </div>
                       <div class="fileDispContainer">
-                      <button id="fileBtn" onclick="openingFile()" >Open</button>
-                      <div id="fileDisp">File Display Box</div>
+                      <!-- <button id="fileBtn" onclick="openingFile()" >Open</button>
+ -->
+                      <div id="fileDisp">File Display Box </div>
+                      <!-- <button id="fileBtn" onclick="openingFile();">Open file</button> -->
+
+                      <button onclick="document.getElementById('getFileBtn').click()">Open file</button> 
+                      <input type='file' id="getFileBtn" onclick="openFileBtn();">
+                     
+
+                      <!-- <input type='button' id="getFileBtn" onclick="openFileBtn();">Open file</button> 
+                     -->
+                      <button onclick="saveFileAs();">Save As</button>
+                      <pre id="textarea" ></pre>
+                      
+                 
+
+
+                     
+                        
+                      <!-- </div> -->
+                     
+                      <!-- <button id="saveBtn"> Save exiting texfile</button> -->
 
                      </div>
           
@@ -273,89 +289,101 @@
                     x++;
                     y++;
                 }
-                // <script>
-                // // logFileMsgAlertLogIn(userNameDisp);
-                // function logFileMsgAlertLogIn(userNameDisp) {
-                //   let listUserName = [];
-                //   let listLog3 = [];
-                //   let  listTime3 = [];
-              
-                //    var a = 1;
-                //    var b = 0;
 
-                //   var rowAdd3 = document.getElementById('tableDisp2');
-                //   var NewRow3 = rowAdd3.insertRow(a);
-               
-
-                //     //nice job!
-                    
-                //      var userNameLog=userNameDisp;
-                //      let msgLogInfo=("A user has logged in.");
-               
-
-                //      let finalTime2=new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
-      
-                //     document.getElementById("shipName").value=userNameLog;
-                //     // var logMsgFileAlert=  "File uploaded at."
-                //     document.getElementById("txtFileAlert").value= msgLogInfo;
+             
+                //   function openingFile(){  
+                //   var input = document.createElement("input");
+                //   input.type = "file";
+             
+                //   input.accept = "text/plain, text/html";
+                //    input.click();
+                //   input.onchange = function (event) {
+                //           uploadingFile(event.target.files[0]);
+                //       };
+                      
+                // }
+                // function uploadingFile(file){
+                //   var fileReader = new FileReader();
+                //   fileReader.readAsText(file,"UTF-8");
                   
-                //     document.getElementById("txtFileTimeStamp").value= finalTime2;
-
-
-               
-                //     listUserName[b] = document.getElementById("shipName").value;
-                //     listLog3[b] = document.getElementById("txtFileAlert").value;
-                //     listTime3[b] = document.getElementById("txtFileTimeStamp").value;
-
-                //       var tileC01 = NewRow3.insertCell(0);
-                //       var tileC02 = NewRow3.insertCell(1);
-                //       var tileC03 = NewRow3.insertCell(2);
-            
-        
-                //       tileC01.innerHTML =  listUserName[b];
-                //       tileC02.innerHTML = listLog3[b];
-                //       tileC03.innerHTML = listTime3[b];
-                    
-                        
-                //     a++;
-                //     b++;
+                //   fileReader.onload = function () {
+                //     fileDisp.innerText = fileReader.result;
+                //     console.log("Text File is uploaded");
+                //       logFileMsgAlertTextFile(file.name, file.size);
+                     
+                //   };
                 // }
 
-                //<script>
 
-                  function openingFile(){
-                    // make sure: 'input' varName is now allowed to be changed
-                  var input = document.createElement("input");
-                  
-                  // console.log(textInput);
-                  input.type = "file";
-                  // setting inputFile Type
-                  input.accept = "text/plain, text/html";
-
-                  input.click();
-                  input.onchange = function (event) {
-                    // when there is onchange, we run fuction 'upLoadingFile'
-                          uploadingFile(event.target.files[0]);
-                      };
+                // function openingFile(){  
+                //   var input = document.createElement("input");
+                //   input.type = "file";
+             
+                //   input.accept = "text/plain, text/html";
+                //    input.click();
+                //   input.onchange = function (event) {
+                //           uploadingFile(event.target.files[0]);
+                //       };
                       
-                }
-
-
-                function uploadingFile(file){
-                  var fileReader = new FileReader();
-                  fileReader.readAsText(file,"UTF-8");
+                // }
+                // function uploadingFile(file){
+                //   var fileReader = new FileReader();
+                //   fileReader.readAsText(file,"UTF-8");
                   
-                  fileReader.onload = function () {
-                    fileDisp.innerText = fileReader.result;
-                    console.log("Text File is uploaded");
-                      logFileMsgAlertTextFile(file.name, file.size);
+                //   fileReader.onload = function () {
+                //    fileDisp.innerText = fileReader.result;
+                //   console.log("Text File is uploaded");
+                //   logFileMsgAlertTextFile(file.name, file.size);
+                //   };
+                // }
+
+                // 
+
+               
+              
+                let fileSave;
+
+               async function openFileBtn(){
+
+
+
+                    // var fileInput = document.getElementById('upload');   
+                    // var filename = fileInput.files[0].name;
+                
+                   [fileSave] = await window.showOpenFilePicker();
+                   let fileData = await fileSave.getFile();
+                   let text = await fileData.text();
+                   textarea.innerText= text;
+
+
+                   var fileName= document.getElementById('getFileBtn')
+                     var getFileName = fileName.files[0].name;
+                     var getFileSize = fileName.files[0].size;
                      
-                  };
-                }
+                   logFileMsgAlertTextFile(getFileName, getFileSize);
+                  //  openingFile();
+               }
+
+               async function saveFile(){
+                   let stream = await fileSave.createWritable();
+                   await stream.write(textarea.innerText);
+                   await stream.close();
+               }
+
+               async function saveFileAs(){
+                   fileSave= await window.showSaveFilePicker();
+                   saveFile(); 
+
+               }
+    
+
                 // end
 
 
           </script>
+
+         
+
         <!--  -->
          
 

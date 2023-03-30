@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openFileBtn();">Open file</button>
+    <pre id="textarea" ></pre>
+    <button onclick="saveFileAs();">Save As</button>
+
+        <script>
+           
+            let fileSave;
+
+                async function openFileBtn(){
+                    // [fileSaver]= await window.showOpenFilePicker();
+                    // let saveData = await fileSaver.getFile()
+                    [fileSave] = await window.showOpenFilePicker();
+                    let fileData = await fileSave.getFile();
+                    let text = await fileData.text();
+                    textarea.innerText= text;
+                }
+
+                async function saveFile(){
+                    let stream = await fileSave.createWritable();
+                    await stream.write(textarea.innerText);
+                    await stream.close();
+                }
+
+                async function saveFileAs(){
+                    fileSave= await window.showSaveFilePicker();
+                    saveFile(); 
+
+                }
+        </script>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>
