@@ -5,25 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
-          
-    <!-- <script language="javascript" type="text/javascript" src="/sketch.js"></script> -->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/home/pageLayoutCalc.css"> 
+    <!-- <link rel="stylesheet" href="/css/home/login.css"> -->
+    <link rel="stylesheet" href="/css/home/pageLayout.css">
     <!-- <script src="/js/home/login.js" defer></script> -->
-    
- </head>
+    <!-- <script src="../../public/readText.js" type="module" ></script>  -->
+    <!-- <script src="./readText.js" type="module" ></script> 
+     -->
+    <!-- <script language="javascript" type="text/javascript" src="sketch.js"></script> -->
+
+    <title>Title</title>
+    <script type="text/javascript">
+      function getUserName(){
+        var userName= document.forms["userForm"]["yourName"].value;
+        var inputName = document.getElementById("userInputName").value;
+        localStorage.setItem("textvalue",inputName)
+        window.location.href="./calculation";
+      }
+
+    </script>
+</head>
 <body>
-    <ul class="nav nav-pills nav-fill">
+      <div navigationBar2>
+      </div>
+
+    <!-- <ul class="navbar_menu"> -->
+        <ul class="nav nav-pills nav-fill">
           <li class="nav-item">
             <a class="nav-link active" href="/">Home</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link " href="/">Optimal calculation: <br> Unload containers from a ship</a>
+            <a class="nav-link " href="/calculation">Optimal calculation: <br>Unload containers from a ship</a>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="/logIn">Log in</a>
           </li>
@@ -35,330 +50,38 @@
             <a class="nav-link " href="/">About us/Customer service</a>
           </li>
 
-      </ul>
-          <div class="boldLetter">
-            <script>
-            document.write(" Welcome, user name: ");
-              var userNameDisp=localStorage.getItem("textvalue");
-            
-              document.write(userNameDisp);
-              // logFileMsgAlertLogIn(userNameDisp);
-           
+        </ul>
+     
+<!--         
+      </ul> -->
+      <br>
+      <br>
+      <h1>Login Page</h1>
+      <p> Welcome to our Login page! </p>
+      <p>Please Login with your name to start.</p>
 
-            </script>
-          </div>
-          
-          <h2>Optimal solution calculation page</h2>
-          <p> Our program finds the optimal solution to unload containers from a ship to the port for least time of operation process.</p>
-
-          
-          
-          </div>
-          <div class="wrapper">
-            <h3> Log file Display Box</h3>
-            <center>
-            <table border="1">
-              <thead>
-        
-                <tr>
-                  <th>Operator Name</th>
-                  <td><input type="text" name="operatorName" id="operatorName" placeholder="Type your name here"></td>  
-                </tr>
-        
-              </thead>
-        
-              <tbody>
-                <tr>
-                  <th>Log message</th>
-                  <td><input type="text" name="logNote" id="logNote" placeholder="Leave your message here"></td>
-                            
-                </tr>
-                <tr id="buttonClick">
-                            <div id="timeStamp"></div>
-                  <td colspan="2"><input type="button" class="btn btn-primary" name="button" id="btn" value="Create Log message" onclick="rowCreation()"></td>
-                </tr>
-              </tbody>
-            </table>
-
-
-            <!-- 1st table -->
-            <table border="1" border-style="round" id="tableDisp2">
-              <thead>
-                <tr>
-                  <th id="shipName" style="color: rgb(79, 78, 81) "> Ship/User name</th>
-                  <th id="txtFileAlert" style="color: rgb(67, 67, 68)">Log message</th>
-              
-                  <th id="txtFileTimeStamp" style="color: rgb(81, 81, 84)">Time stamp</th>
-                </tr>
-              </thead>
-            </table>
-           </center>
-           <!-- 2nd table -->
-            <table border="1" border-style="round" id="tableDisp">
-              <thead>
-                <tr>
-                  <th style="color: rgb(30, 66, 248) ">Operator Name </th>
-                  <th style="color: rgb(30, 66, 248) ">Log message</th>
-                  <th style="color: rgb(30, 66, 248) ">Time stamp</th>
-                </tr>
-              </thead>
-            </table>
-
-          
-
-           <script>
-             logFileMsgAlertLogIn(userNameDisp);
-
-
-          
-                // logFileMsgAlertLogIn(userNameDisp);
-                function logFileMsgAlertLogIn(userNameDisp) {
-                  let listUserName = [];
-                  let listLog3 = [];
-                  let  listTime3 = [];
-              
-                   var a = 1;
-                   var b = 0;
-
-                  var rowAdd3 = document.getElementById('tableDisp2');
-                  var NewRow3 = rowAdd3.insertRow(a);
-               
-
-                    //nice job!
-                    
-                     var userNameLog=userNameDisp;
-                     let msgLogInfo=("A user has logged in.");
-               
-
-                     let finalTime2=new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+      <br>
+      <br>
       
-                    document.getElementById("shipName").value=userNameLog;
-                    // var logMsgFileAlert=  "File uploaded at."
-                    document.getElementById("txtFileAlert").value= msgLogInfo;
-                  
-                    document.getElementById("txtFileTimeStamp").value= finalTime2;
+      <h2>Login Here</h2>
+     
+      <div class =divFirst>
+        <form name="userForm" method="post">
+          <label>User Name:</label>
+          <input type = "text" name="yourName"  id= "userInputName" placeholder="type user name">
+          <!-- class=" inputText" -->
+            <br>
+            <input type = "button" class="btn btn-primary" name="buttonLogin" id="buttonIn" value="LOGIN SUBMIT" onclick="getUserName()">
+            <br>
+        </form>
 
+      </div>
+     
+    
+    
 
-               
-                    listUserName[b] = document.getElementById("shipName").value;
-                    listLog3[b] = document.getElementById("txtFileAlert").value;
-                    listTime3[b] = document.getElementById("txtFileTimeStamp").value;
-
-                      var tileC01 = NewRow3.insertCell(0);
-                      var tileC02 = NewRow3.insertCell(1);
-                      var tileC03 = NewRow3.insertCell(2);
-            
-        
-                      tileC01.innerHTML =  listUserName[b];
-                      tileC02.innerHTML = listLog3[b];
-                      tileC03.innerHTML = listTime3[b];
-                    
-                        
-                    a++;
-                    b++;
-                }
-
-             
-
-           </script>
-
-          
-          <script>
-              
-            let listOperator = [];
-            let listLog = [];
-                let  listTime = [];
-            
-        
-            var i = 1;
-            var j = 0;
-        
-            function rowCreation(){
-        
-              var rowAdd = document.getElementById('tableDisp');
-              var NewRow = rowAdd.insertRow(i);
-                   // var timeStamp2= document.getElementById("timeStamp");
-        
-                    //nice job!
-                    document.getElementById("timeStamp").value= new Date(document.lastModified);
-        
-                    listOperator[j] = document.getElementById("operatorName").value;
-                    listLog[j] = document.getElementById("logNote").value;
-                    // document.getElementById("logNote").style.color= "blue";
-                          
-                
-                    listTime[j] = document.getElementById("timeStamp").value;
-              
-                      var tile01 = NewRow.insertCell(0);
-                      var tile02 = NewRow.insertCell(1);
-                      var tile03 = NewRow.insertCell(2);
-            
-        
-                      tile01.innerHTML = listOperator[j];
-                      tile02.innerHTML = listLog[j];
-                      tile03.innerHTML = listTime[j];
-                    
-        
-              i++;
-              j++;
-
-            }
-
-                // case2. for log file_text File update
-                </script>
-                      </div>
-                      <div class="fileDispContainer">
-                      <button id="fileBtn" onclick="openingFile()" >Open</button>
-                      <div id="fileDisp">File Display Box</div>
-
-                     </div>
-          
-                     
-                <script>
-              
-                        let listShipName = [];
-                        let listLog2 = [];
-                         let  listTime2 = [];
-                        
-                    
-                        var x = 1;
-                        var y = 0;
-
-                function logFileMsgAlertTextFile(fileName,fileSize){
-              
-
-                  var rowAdd2 = document.getElementById('tableDisp2');
-                  var NewRow2 = rowAdd2.insertRow(x);
-               
-
-                    //nice job!
-                    
-                     var shipName=fileName;
-                     let msgWithFileInfo=("Manifest file uploaded. The file size: " +fileSize + " bytes");
-               
-
-                          
-                    //   let timeStamp2 = new Date().getTime();
-                    //  let timeStamp3= new Date(timeStamp2);
-                    //  let finalTime= new Date().toPDTString();
-                     let finalTime=new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"}); 
-                     
-                  
-
-                  //    let finalTime= ( timeStamp3.getMonth() + "/" + timeStamp3.getDate() +"/" + timeStamp3.getFullYear() + "/" + timeStamp3.getHours() + "/" + + timeStamp3.getMinutes() + "/");
-                  // //  createP(file.name) + ' ' + file.size + ' ' + file.type);
-            
-                    document.getElementById("shipName").value=shipName;
-                    // var logMsgFileAlert=  "File uploaded at."
-                    document.getElementById("txtFileAlert").value= msgWithFileInfo;
-                  
-                    document.getElementById("txtFileTimeStamp").value= finalTime;
-
-
-               
-                    listShipName[j] = document.getElementById("shipName").value;
-                    listLog2[j] = document.getElementById("txtFileAlert").value;
-                    listTime2[j] = document.getElementById("txtFileTimeStamp").value;
-
-                    var tileB01 = NewRow2.insertCell(0);
-                      var tileB02 = NewRow2.insertCell(1);
-                            var tileB03 = NewRow2.insertCell(2);
-            
-        
-                      tileB01.innerHTML =  listShipName[j];
-                      tileB02.innerHTML = listLog2[j];
-                      tileB03.innerHTML = listTime2[j];
-                    
-                        
-                    x++;
-                    y++;
-                }
-                // <script>
-                // // logFileMsgAlertLogIn(userNameDisp);
-                // function logFileMsgAlertLogIn(userNameDisp) {
-                //   let listUserName = [];
-                //   let listLog3 = [];
-                //   let  listTime3 = [];
-              
-                //    var a = 1;
-                //    var b = 0;
-
-                //   var rowAdd3 = document.getElementById('tableDisp2');
-                //   var NewRow3 = rowAdd3.insertRow(a);
-               
-
-                //     //nice job!
-                    
-                //      var userNameLog=userNameDisp;
-                //      let msgLogInfo=("A user has logged in.");
-               
-
-                //      let finalTime2=new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
       
-                //     document.getElementById("shipName").value=userNameLog;
-                //     // var logMsgFileAlert=  "File uploaded at."
-                //     document.getElementById("txtFileAlert").value= msgLogInfo;
-                  
-                //     document.getElementById("txtFileTimeStamp").value= finalTime2;
-
-
-               
-                //     listUserName[b] = document.getElementById("shipName").value;
-                //     listLog3[b] = document.getElementById("txtFileAlert").value;
-                //     listTime3[b] = document.getElementById("txtFileTimeStamp").value;
-
-                //       var tileC01 = NewRow3.insertCell(0);
-                //       var tileC02 = NewRow3.insertCell(1);
-                //       var tileC03 = NewRow3.insertCell(2);
-            
-        
-                //       tileC01.innerHTML =  listUserName[b];
-                //       tileC02.innerHTML = listLog3[b];
-                //       tileC03.innerHTML = listTime3[b];
-                    
-                        
-                //     a++;
-                //     b++;
-                // }
-
-                //<script>
-
-                  function openingFile(){
-                    // make sure: 'input' varName is now allowed to be changed
-                  var input = document.createElement("input");
-                  
-                  // console.log(textInput);
-                  input.type = "file";
-                  // setting inputFile Type
-                  input.accept = "text/plain, text/html";
-
-                  input.click();
-                  input.onchange = function (event) {
-                    // when there is onchange, we run fuction 'upLoadingFile'
-                          uploadingFile(event.target.files[0]);
-                      };
-                      
-                }
-
-
-                function uploadingFile(file){
-                  var fileReader = new FileReader();
-                  fileReader.readAsText(file,"UTF-8");
-                  
-                  fileReader.onload = function () {
-                    fileDisp.innerText = fileReader.result;
-                    console.log("Text File is uploaded");
-                      logFileMsgAlertTextFile(file.name, file.size);
-                     
-                  };
-                }
-                // end
-
-
-          </script>
-        <!--  -->
-         
-
+          
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
