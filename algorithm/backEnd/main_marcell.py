@@ -18,8 +18,8 @@ def read_manifest(file) -> list:
         name = (line[18:])
         # x and y coords
         # need to transform coordinate system
-        x = int(line[1:3]) + 1
-        y = 9 - int(line[4:6])
+        y = 9 - int(line[1:3])
+        x = int(line[4:6]) - 1
         # weight
         w = int(line[10:15])
         if name == "NAN":
@@ -31,6 +31,7 @@ def read_manifest(file) -> list:
 
 
 ship_load = read_manifest(input("Type in the name of the manifest file:\n"))
+ship_load.reverse()
 while int(input("Type 1 to select a container to offload from ship (or 2 to continue to the next step):\n")) == 1:
     container_name = input("Type in precisely the name of the container you wish to offload:\n")
     found: bool = False
@@ -57,7 +58,10 @@ while len(stack) > 0:
         break
     derivs = stack[-1].try_all_operators()
     if len(stack) % 40 == 0:
-        print(str(int(stack[-1].cost_to_get_here / stack[-1].a_star_cost * 100))+"%")
+        val = int(stack[-1].cost_to_get_here / stack[-1].a_star_cost * 100)
+        if val > 1:
+            print("Something wrong")
+        print(str(val)+"%")
     stack.pop()
     for deriv in derivs:
         if str(deriv) in history:
@@ -84,6 +88,7 @@ for element in steps:
     print(element.move_description)
     print(acc)
 print(str(solution.cost_to_get_here) + " minutes")
+print(solution.to_manifest_string())
 print(str(len(stack)) + " " + str(len(history)))
 # for i in range(cells.__len__()):
 #     acc = ""

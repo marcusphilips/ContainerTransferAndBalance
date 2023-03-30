@@ -109,6 +109,26 @@ class Port(ABC):
         self.ship = Space(ship_size.x, ship_size.y)
         self.buffer = Space(buffer_size.x, buffer_size.y)
 
+    def to_manifest_string(self) -> str:
+        acc = ""
+        for row in range(self.ship.height - 1, -1, -1):
+            for col in range(self.ship.width):
+                cell = self.ship.cells[col][row]
+                if cell.state == Condition.UNOCCUPIABLE:
+                    break
+                acc += "[" + str(self.ship.height - row).zfill(2) + "," + str(col + 1).zfill(2) + "], "
+                if cell.state == Condition.OCCUPIED:
+                    if cell.container.weight < 0:
+                        cell.container.weight = int(input("What is the weight of container <" +
+                                                          cell.container.description + ">?:\n"))
+                    acc += "{" + str(cell.container.weight).zfill(5) + "}, " + cell.container.description
+                elif cell.state == Condition.HULL:
+                    acc += "{00000}, NAN"
+                elif cell.state == Condition.EMPTY:
+                    acc += "{00000}, UNUSED"
+                acc += "\n"
+        return acc
+
     def __eq__(self, rhs) -> bool:
         if self.crane_state != rhs.crane_state:
             return False
@@ -147,7 +167,7 @@ class Port(ABC):
         return self.solved
 
     @abstractmethod
-    def calculate_heuristic(self):
+    def calculate_heuristic(self) -> int:
         pass
 
     # start and end coordinates are inclusive
@@ -382,13 +402,25 @@ class SIFT(Port):
             self.solved = True
         return lower_bound_time_left
 
-    def iterate(self):
-
-    def try_all_operators(self) -> []:
-        acc = []
-        if self.crane_state == CraneState.SHIP:
-
-        return acc
+    # def iterate(self, end_state: CraneState, container: Container = None) -> list:
+    #     acc = []
+    #     if end_state == CraneState.SHIP and container is None:
+    #         for col in range(self.ship.width):
+    #             if self.ship.get_top_physical_cell(col).state == Condition.OCCUPIED and col != self.crane_position.x:
+    #                 acc.append(self.create_derivative(Coordinate(col, self.ship.min_clearance[col] + 1), end_state))
+    #     elif end_state == CraneState.BUFFER and container is None:
+    #         for col in range(self.buffer.width):
+    #             if self.buffer.get_top_physical_cell(col).state == Condition.OCCUPIED and col != self.crane_position.x:
+    #                 acc.append(self.create_derivative(Coordinate(col, self.buffer.min_clearance[col] + 1), end_state))
+    #     elif end_state == CraneState.SHIP and container is not None:
+    #         for col in range(self.ship.width):
+    #             if self.ship.min_clearance[col]
+    #
+    # def try_all_operators(self) -> []:
+    #     acc = []
+    #     if self.crane_state == CraneState.SHIP:
+    #
+    #     return acc
 
     def __str__(self):
         acc = ""
